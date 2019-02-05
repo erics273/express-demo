@@ -10,6 +10,10 @@ publicDir = path.join(__dirname,'public');
 
 app.use(express.static(publicDir))
 
+app.get('/api/demo', function (req, res) {
+    res.json({"greeting": "hello world"});
+});
+
 app.use(AWSXRay.express.closeSegment());
 
 app.listen(port);
